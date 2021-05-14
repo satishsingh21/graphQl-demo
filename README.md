@@ -1,6 +1,5 @@
 # graphQl-demo
 
-
 ![image](https://thumbs.gfycat.com/AccurateDarlingFawn-size_restricted.gif) <!-- .element height="50%" width="50%" -->
 
 ### GraphQL is a declarative, strongly-typed query language for client applications. Clients define the exact data shape and contents that they need in a single request which eliminates over-fetching problems and circumvents the need for multiple costly round trips to the server. It has one single endpoint for all kinds of requests, and the method has to be a post request.
