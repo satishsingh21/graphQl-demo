@@ -37,7 +37,6 @@ const schema = buildSchema(`
     # vs schema we are looking for validation.
     
     input CourseInput {
-        id: ID
         courseName: String!
         price: Int!
         name: String!

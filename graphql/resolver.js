@@ -28,12 +28,13 @@ const dataHodler = {}; // empty resource
 
 const resolvers = {
     getCourse: ({id}) => {
-        return new Course(id, dataHodler[id])
+        // here we can attach our dataSource, which could be dataabse or another rest api
+        return new Course(id, dataHodler[id]);
     },
     createCourse: ({input}) => {
         let id = nanoid();
-        dataHodler[id] = input
-        return new Course(id, input)
+        dataHodler[id] = input;
+        return new Course(id, input);
     }
 } 
 
