@@ -165,14 +165,14 @@ Resolver functions can optionally accept four positional arguments.
 
 <ins>**Problem with graphql**</ins>
 
-* Require separate configuration at client end for cache as Graphql reuest are POST.
-* It increase more work at backend levet as you need to maintain resolver lot and lot of typedefs for schema apart from the database schema if your application bigger.
+* Require separate configuration at client end for implemneting caching  as Graphql reuest are POST.
+* It increase more work at backend levet as you need to maintain resolver and lot and lot of typedefs for schema apart from the database schema you alreay have.
 
 <ins>**Conclusion**</ins>
 
-Q. Should we start using graphql in our project ?
+**Q.** Should we start using graphql in our project ?
 
-A. It's totally depend on your application. If you building application for specfic client that have this requirement go for it but if your building an application where n number of client going to use your api it will be better to go with rest as it is more acceptable compare to graphql. As we know consuming graphql api require separate configuration at client level and we can not ask our client to make change in your client application to consume your api. 
+**A.** It's totally depend on your application. If you building application for specfic client that have this requirement go for it but if your building an application where n number of client going to use your api it will be better to go with rest as it is more acceptable compare to graphql. As we know consuming graphql api require separate configuration at client level and we can not ask our client to make change in your client application to consume your api. 
 
 ---
 <ins>**Topic to be covered in some other session**</ins>
