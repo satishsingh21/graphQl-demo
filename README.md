@@ -164,7 +164,7 @@ Resolver functions can optionally accept four positional arguments.
 ---
 
 <ins>**Problem with graphql**</ins>
-
+* Client also need to know and learn graphql for front-end implementation 
 * Require separate configuration at client end for implemneting caching  as Graphql reuest are POST.
 * It increase more work at backend levet as you need to maintain resolver and lot and lot of typedefs for schema apart from the database schema you alreay have.
 
