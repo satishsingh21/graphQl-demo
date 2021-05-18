@@ -161,6 +161,41 @@ Resolver functions can optionally accept four positional arguments.
 
 **Time for Demo**
 
+```
+    mutation {
+        createCourse(input: {
+            courseName: "someName",
+            price: 100,
+            name: "XYZ"
+            teachingAssists: [
+            {
+                firstName: "A",
+                lastName: "Z",
+                experience: 30
+            }
+            ]
+        }) {
+            id,
+            courseName,
+            name,
+            teachingAssists {
+                firstName
+            }
+        }
+    }
+```
+
+```
+    query {
+        getCourse(id: "yp6UsthwYe-OpcRx9259M") {
+            courseName,
+            teachingAssists{
+            experience
+            }
+        }
+    }
+```
+
 ---
 
 <ins>**Problem with graphql**</ins>
