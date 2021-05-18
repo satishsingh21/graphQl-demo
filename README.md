@@ -177,7 +177,7 @@ Resolver functions can optionally accept four positional arguments.
 ---
 <ins>**Topic to be covered in some other session**</ins>
 * Front-end implementation of graphql
-* Subscription model in graphQl
+* Subscription type
 * Handling Error
 * Pagination
 * Authorization
