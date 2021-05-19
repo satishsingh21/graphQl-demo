@@ -9,20 +9,6 @@
 
 ---
 
-**Definiton**
-
-```
-GraphQL is a declarative, strongly-typed query language for client applications. Clients define the exact data shape and contents that they need in a single request which eliminates over-fetching problems and circumvents the need for multiple costly round trips to the server.
-
-GraphQL is a query language for your API - not databases. GraphQL does not mandate the use of a particular language – JAVA, Ruby and many others have implementations. GraphQL itself is independent of language.
-```
-
-**Graphql example as gif**
-
-![image](https://miro.medium.com/max/1400/1*K0czTfHWTtNNBhvaVdyXfw.gif)
-
----
-
 <ins>**Problem with REST api**</ins>
 1. No of endpoint can go higher in case of REST api if our application is bigger.
    Unlike REST, Graphql exposes single endpoint mostly **graphql/** with POST method instead of feature based endpoint
@@ -38,6 +24,37 @@ GraphQL is a query language for your API - not databases. GraphQL does not manda
 
 2. There is over and under-fetching of resources in case of REST api.
    
+```
+    import mongoose from 'mongoose';
+    const { Schema } = mongoose;
+
+    const blogSchema = new Schema({
+        title:  String, // String is shorthand for {type: String}
+        author: String,
+        body:   String,
+        comments: [{ body: String, date: Date }],
+        date: { type: Date, default: Date.now },
+        hidden: Boolean,
+        meta: {
+        votes: Number,
+        favs:  Number
+        }
+    });
+```
+   
+
+**Definiton**
+
+```
+GraphQL is a declarative, strongly-typed query language for client applications. Clients define the exact data shape and contents that they need in a single request which eliminates over-fetching problems and overcome the need for multiple costly round trips to the server.
+
+GraphQL is a query language for your API - not databases. GraphQL does not mandate the use of a particular language – JAVA, Ruby and many others have implementations. GraphQL itself is independent of language.
+```
+
+**Graphql example as gif**
+
+![image](https://miro.medium.com/max/1400/1*K0czTfHWTtNNBhvaVdyXfw.gif)
+
 ---
 
 <ins>**Key concepts:**</ins>
@@ -46,12 +63,12 @@ GraphQL is a query language for your API - not databases. GraphQL does not manda
 
 2. Mutations — They are basically create, update and  delete in CUD in graphql.
 * `So whatever client sent in request to server we call it query (or muatation) in graphql.`
-3. Schema - It act as contract between clinet and server. It usually consist of typeDefs. They usually consist of root Type called Query, Mutation alon with your custom Type.
+3. Schema - It act as contract between clinet and server. It usually consist of typeDefs. They usually consist of root Type called Query, Mutation along with your custom Type.
 
 #### <ins>Root Types :</ins> 
 ```
 type Query {
-    getpersons(): User
+    getpersons(): [User]
 }
 
 type mutation {
@@ -65,17 +82,18 @@ if we take an exmple of Blog application Where user create account and they can 
 ```
 
 **Examples**
+
 ``` 
     type User {
-        name: string!
-        age: number!
+        name: String!
+        age: Int!
     }
 
 ```
 
 ```
     type Post {
-        content: string! 
+        content: String! 
     } 
 ```
 
@@ -100,9 +118,8 @@ Post typedefs that belong to an author could look like this
         author: [User]!
     }
 ```
-
-   
-4. Resolver -  A resolver is a function that resolves a value for a type or field in a schema.
+ 
+4. Resolver -  A resolver is a function that **resolves a value for a type or field in a schema**.
 When the server receives a query (or mutation), it will call all the functions for the fields that are specified in the query’s payload. It thus resolves the query and is able to retrieve the correct data for each field.
 
 To better understand resolvers, you need to know how queries are executed. Every GraphQL query goes through three phases. Queries are parsed, validated and executed.
@@ -139,11 +156,15 @@ For this query
     }
 ```
 
-A resolvers process result in a chain
+A resolvers process result in a chain. These resolvers execute in the order shown below, passing their return value to the next resolver in the chain via the parent argument.
 
 ```
     Query.libraries() -> Library.books() -> Book.author() -> Author.name()
 ```
+
+<ins>**Default resolvers**</ins>
+
+It’s worth noting that a GraphQL server has built-in default resolvers, so you don’t have to specify a resolver function for every field. A default resolver will look in root to find a property with the same name as the field.
 
 Resolver functions can optionally accept four positional arguments.
 
@@ -193,6 +214,14 @@ Resolver functions can optionally accept four positional arguments.
             experience
             }
         }
+    }
+
+    query {
+        greeting
+    }
+
+    query {
+        greetingWithName(name: "Satish")
     }
 ```
 

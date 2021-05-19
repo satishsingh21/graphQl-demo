@@ -31,6 +31,9 @@ const schema = buildSchema(`
     type Query {
         # We will return complete course. It's graphql job of cherry picking what they need
         getCourse(id: ID): Course
+        getCourses: [Course]
+        greeting: String
+        greetingWithName(name: String): String 
     }    
 
     # another way to define type basically used to differentiate normal schema

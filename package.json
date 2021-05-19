@@ -16,19 +16,5 @@
     "graphql": "^15.5.0",
     "nanoid": "^3.1.23",
     "nodemon": "^2.0.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/satishsingh21/graphQl-demo.git"
-  },
-  "keywords": [
-    "babel",
-    "es6"
-  ],
-  "author": "Satish",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/satishsingh21/graphQl-demo/issues"
-  },
-  "homepage": "https://github.com/satishsingh21/graphQl-demo#readme"
+  }
 }

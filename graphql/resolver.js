@@ -35,7 +35,17 @@ const resolvers = {
         let id = nanoid();
         dataHodler[id] = input;
         return new Course(id, input);
+    },
+    getCourses: () => {
+        return new Course(dataHodler[id], dataHodler);
+    },
+    greeting:() => {
+        return "hello from  TutorialsPoint !!!"
+    },
+    greetingWithName: ({name}) => {
+        return `hello from  ${name} !!!`
     }
 } 
+
 
 export default resolvers;
